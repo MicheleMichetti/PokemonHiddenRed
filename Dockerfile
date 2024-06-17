@@ -1,11 +1,11 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt-get upgrade && apt-get update
 
 # Fetch latest version of CMake
 RUN apt-get install software-properties-common -y
 RUN apt-get install lsb-release -y
-RUN apt-get install ca-certificates -y
+RUN apt-get install ca-certificates gpg wget -y
 RUN apt clean all
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
 RUN apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
