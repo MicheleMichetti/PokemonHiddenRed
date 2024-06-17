@@ -1,20 +1,23 @@
 #pragma once
 
+#include <utils.hpp>
+#include <map>
+
 namespace _interaction {
 
 class Interaction {
    protected:
     uint32_t id_;
     uint8_t type_;
-    uint8_t status_bit_mask;
+    uint8_t status_bit_mask_;
 
    public:
     Interaction();
-    Interaction(uint32_t id, uint8_t type);
+    Interaction(uint32_t id, uint8_t type, uint8_t status_bit_mask = 0);
     ~Interaction();
 
-    void setId(uint32_t id_);
-    void setType(uint8_t type_);
+    void setId(uint32_t id);
+    void setType(uint8_t type);
     void setStatus(uint8_t status_bit_mask);
 
     uint32_t getId();
@@ -26,6 +29,6 @@ class Interaction {
     bool isInteractionEnded();
     void enableInteraction();
     void disableInteraction();
-}
+};
 
 }  // namespace _interaction
