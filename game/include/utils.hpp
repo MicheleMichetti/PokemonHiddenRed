@@ -38,26 +38,24 @@ enum InteractionStatus : uint8_t {
 
 };
 
-//read n-th bit
+// read n-th bit
 template <class T>
 bool readBit(T field, T n) {
-    return field & ((T)1<<n);
+    return field & ((T)1 << n);
 }
-//TODO below have to be template func
-// function to find the position of rightmost set bit
-uint8_t getPosOfRightmostSetBit(uint8_t n) {
-    return std::log2(n & -n);
-}
- 
+// TODO below have to be template func
+//  function to find the position of rightmost set bit
+uint8_t getPosOfRightmostSetBit(uint8_t n) { return std::log2(n & -n); }
+
 // function to toggle the last m bits
 uint8_t toggleLastKBits(uint8_t n, uint8_t k) {
     // calculating a number 'num' having 'm' bits and all are set
     uint8_t num = (1 << k) - 1;
- 
+
     // toggle the last m bits and return the number
     return (n ^ num);
 }
- 
+
 // function to increment a number by one by manipulating the bits
 uint8_t incrementByOne(uint8_t n) {
     // get position of rightmost unset bit
@@ -65,10 +63,10 @@ uint8_t incrementByOne(uint8_t n) {
     // bit left to the MSB is the rightmost
     // unset bit
     uint8_t k = getPosOfRightmostSetBit(~n);
- 
+
     // kth bit of n is being set by this operation
     n = ((1 << k) | n);
- 
+
     // from the right toggle all the bits before the k-th bit
     if (k != 0) {
         n = toggleLastKBits(n, k);
