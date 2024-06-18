@@ -26,8 +26,44 @@ uint32_t Interaction::getId() { return id_; }
 uint8_t Interaction::getType() { return type_; }
 uint8_t Interaction::getStatus() { return status_bit_mask_; }
 
-bool Interaction::isInteraction() { return false; }
-void Interaction::playInteraction() { return; }
-bool Interaction::isInteractionEnded() { return false; }
-void Interaction::enableInteraction() { return; }
-void Interaction::disableInteraction() { return; }
+bool Interaction::isInteraction() { 
+    if( !(status_bit_mask_ & utils::InteractionStatus::ENABLED) ) {
+        return false;
+    }
+    if( !isInteractionEnded() ) {
+        return false;
+    }
+    return true;
+
+    
+}
+bool Interaction::isInteractionEnded() {
+    if( status_bit_mask_ & utils::InteractionStatus::INTERACTION_ENDED ) {
+        return true;
+    }
+    return false;
+}
+
+void Interaction::enableInteraction() {
+    status_bit_mask_ |= utils::InteractionStatus::ENABLED;
+}
+void Interaction::disableInteraction() { 
+    status_bit_mask_ & ~utils::InteractionStatus::ENABLED;
+}
+void Interaction::playInteraction() { 
+    status_bit_mask_ |= utils::InteractionStatus::IS_PLAYING;
+    callFromFile();
+    increaseInteractionCounter();
+}
+void Interaction::endInteraction() { 
+    status_bit_mask_ |= utils::InteractionStatus::INTERACTION_ENDED;
+    status_bit_mask_ & ~utils::InteractionStatus::IS_PLAYING;
+}
+void Interaction::increaseInteractionCounter() {
+    uint8_t counter = 0;
+    for(uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
+        counter |= utils::readBit<uint8_t>(status_bit_mask_,bit_pos); 
+    }
+    counter = utils::incrementByOne(counter);
+    //TODO: copy counter to bitmask
+}

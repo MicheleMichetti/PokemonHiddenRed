@@ -24,11 +24,18 @@ class Interaction {
     uint8_t getType();
     uint8_t getStatus();
 
+    //Interaction status reading
     bool isInteraction();
-    void playInteraction();
     bool isInteractionEnded();
+
+    //Interaction status manipulation
     void enableInteraction();
     void disableInteraction();
+    void playInteraction();
+    void endInteraction();
+    void increaseInteractionCounter();
+
+    void callFromFile();
 };
 
 }  // namespace _interaction
