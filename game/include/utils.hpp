@@ -40,16 +40,16 @@ enum InteractionStatus : uint8_t {
 
 // read n-th bit
 template <class T>
-bool readBit(const T &field, const T &n);
-//set n-th bit
+bool readBit(const T& field, const T& n);
+// set n-th bit
 template <class T>
-void setBit(T &number, const T &n);
-//clear n-th bit
+void setBit(T& number, const T& n);
+// clear n-th bit
 template <class T>
-void clearBit(T &number, const T &n);
-//set n-th bit to
+void clearBit(T& number, const T& n);
+// set n-th bit to
 template <class T>
-void setBitTo(T &number, const T &n, const bool &value);
+void setBitTo(T& number, const T& n, const bool& value);
 
 // function to find the position of rightmost set bit
 template <class T>
@@ -58,7 +58,7 @@ T getPosOfRightmostSetBit(T n);
 // function to toggle the last m bits
 template <class T>
 T toggleLastKBits(T n, T k);
- 
+
 // function to increment a number by one by manipulating the bits
 template <class T>
 T incrementByOne(T n);

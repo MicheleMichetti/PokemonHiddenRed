@@ -55,17 +55,16 @@ void Interaction::endInteraction() {
 }
 void Interaction::increaseInteractionCounter() {
     uint8_t counter = 0b00000000;
-    for(uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
-        counter |= utils::readBit<uint8_t>(status_bit_mask_,bit_pos); 
+    for (uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
+        counter |= utils::readBit<uint8_t>(status_bit_mask_, bit_pos);
     }
 
-    if(counter>=0b00001111) {
+    if (counter >= 0b00001111) {
         return;
     }
     counter = utils::incrementByOne(counter);
 
-    for(uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
-        utils::setBitTo<uint8_t>(status_bit_mask_, bit_pos, utils::readBit<uint8_t>(counter,bit_pos-4));
+    for (uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
+        utils::setBitTo<uint8_t>(status_bit_mask_, bit_pos, utils::readBit<uint8_t>(counter, bit_pos - 4));
     }
-    
 }
