@@ -54,10 +54,18 @@ void Interaction::endInteraction() {
     status_bit_mask_ & ~utils::InteractionStatus::IS_PLAYING;
 }
 void Interaction::increaseInteractionCounter() {
-    uint8_t counter = 0;
-    for (uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
-        counter |= utils::readBit<uint8_t>(status_bit_mask_, bit_pos);
+    uint8_t counter = 0b00000000;
+    for(uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
+        counter |= utils::readBit<uint8_t>(status_bit_mask_,bit_pos); 
+    }
+
+    if(counter>=0b00001111) {
+        return;
     }
     counter = utils::incrementByOne(counter);
-    // TODO: copy counter to bitmask
+
+    for(uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
+        utils::setBitTo<uint8_t>(status_bit_mask_, bit_pos, utils::readBit<uint8_t>(counter,bit_pos-4));
+    }
+    
 }
