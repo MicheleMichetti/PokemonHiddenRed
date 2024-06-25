@@ -35,7 +35,7 @@ class Interaction {
     void endInteraction();
     void increaseInteractionCounter();
 
-    void callFromFile();
+    void callFromRAM();
 };
 
 }  // namespace _interaction

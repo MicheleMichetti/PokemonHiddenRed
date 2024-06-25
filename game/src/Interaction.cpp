@@ -46,7 +46,6 @@ void Interaction::enableInteraction() { status_bit_mask_ |= utils::InteractionSt
 void Interaction::disableInteraction() { status_bit_mask_ & ~utils::InteractionStatus::ENABLED; }
 void Interaction::playInteraction() {
     status_bit_mask_ |= utils::InteractionStatus::IS_PLAYING;
-    callFromFile();
     increaseInteractionCounter();
 }
 void Interaction::endInteraction() {
@@ -67,4 +66,8 @@ void Interaction::increaseInteractionCounter() {
     for (uint8_t bit_pos = 4; bit_pos < 8; ++bit_pos) {
         utils::setBitTo<uint8_t>(status_bit_mask_, bit_pos, utils::readBit<uint8_t>(counter, bit_pos - 4));
     }
+}
+
+void Interaction::callFromRAM() {
+
 }

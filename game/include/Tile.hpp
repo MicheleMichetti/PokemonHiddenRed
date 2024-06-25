@@ -1,6 +1,7 @@
 #pragma once
 
 #include <utils.hpp>
+#include <InteractionTile.hpp>
 
 class Tile {
    public:
@@ -13,4 +14,5 @@ class Tile {
    private:
     uint8_t collision_directions_bitmask_;
     uint8_t interaction_directions_bitmask_;
+    InteractionTile interaction;
 };
