@@ -2,7 +2,7 @@
 
 void InteractionEntity::playInteraction() {
     status_bit_mask_ |= utils::InteractionStatus::IS_PLAYING;
-    
+
     increaseInteractionCounter();
 }
 void InteractionEntity::endInteraction() {
@@ -10,6 +10,4 @@ void InteractionEntity::endInteraction() {
     status_bit_mask_ & ~utils::InteractionStatus::IS_PLAYING;
 }
 
-void InteractionEntity::callFromRAM() {
-
-}
+void InteractionEntity::callFromRAM() {}

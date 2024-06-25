@@ -68,6 +68,4 @@ void Interaction::increaseInteractionCounter() {
     }
 }
 
-void Interaction::callFromRAM() {
-
-}
+void Interaction::callFromRAM() {}

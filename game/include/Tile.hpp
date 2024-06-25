@@ -1,7 +1,7 @@
 #pragma once
 
-#include <utils.hpp>
 #include <InteractionTile.hpp>
+#include <utils.hpp>
 
 class Tile {
    public:

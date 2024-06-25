@@ -3,7 +3,7 @@
 
 void InteractionTile::playInteraction() {
     status_bit_mask_ |= utils::InteractionStatus::IS_PLAYING;
-    
+
     increaseInteractionCounter();
 }
 void InteractionTile::endInteraction() {
@@ -11,6 +11,4 @@ void InteractionTile::endInteraction() {
     status_bit_mask_ & ~utils::InteractionStatus::IS_PLAYING;
 }
 
-void InteractionTile::callFromRAM() {
-
-}
+void InteractionTile::callFromRAM() {}
