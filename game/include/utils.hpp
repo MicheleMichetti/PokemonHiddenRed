@@ -4,8 +4,8 @@
 
 namespace utils {
 struct Coordinate {
-    int x;
-    int y;
+    int16_t x;
+    int16_t y;
 };
 
 enum Direction : uint8_t {
@@ -13,5 +13,6 @@ enum Direction : uint8_t {
     down = 0b00000010,
     left = 0b00000100,
     right = 0b00001000,
+    none = 0b00010000,
 };
 }  // namespace utils
