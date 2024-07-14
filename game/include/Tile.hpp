@@ -5,7 +5,7 @@
 
 class Tile {
    public:
-    Tile(uint8_t collision_directions_bitmask, uint8_t interaction_directions_bitmask);
+    Tile(uint8_t collision_directions_bitmask, uint8_t interaction_directions_bitmask, InteractionTile interaction);
     ~Tile();
 
     bool isCollision(utils::Direction player_direction);
