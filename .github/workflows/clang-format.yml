@@ -1,10 +1,10 @@
-name: Clang-Format
+name: Auto-format source code
 
 on: [push]
 
 jobs:
   clang-format:
-    name: Clang-Format
+    name: Auto-format source code
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -19,6 +19,13 @@ jobs:
 
       - name: Set up Clang-Format
         run: sudo apt-get install -y clang-format
+
+      - name: Cache clang image
+        id: cache-clang-formatter
+        uses: actions/cache@v4
+        with:
+          path: .github/build-caching
+          key: ${{ runner.os }}-clang-formatter
 
       - name: Format source code
         run: clang-format -i game/**/*.cpp game/**/*.hpp --ferror-limit=0 --style file:.clang-format --verbose

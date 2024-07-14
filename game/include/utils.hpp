@@ -1,4 +1,5 @@
 #pragma once
+
 #include <bits/stdc++.h>
 #include <stdint.h>
 
@@ -13,6 +14,7 @@ enum Direction : uint8_t {
     down = 0b00000010,
     left = 0b00000100,
     right = 0b00001000,
+    none = 0b00010000,
 };
 
 enum InteractionType : uint8_t {
@@ -62,5 +64,8 @@ T toggleLastKBits(T n, T k);
 // function to increment a number by one by manipulating the bits
 template <class T>
 T incrementByOne(T n);
+
+enum MapTypes : uint8_t { generic_building = 0b00000001, outside_world = 0b00000010, gym = 0b00000100, rocket_hideout = 0b00001000, cave = 0b00010000, dark_cave = 0b00100000 }
+
 
 }  // namespace utils
