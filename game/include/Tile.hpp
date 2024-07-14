@@ -6,8 +6,10 @@ class Tile {
    public:
     Tile(uint8_t collision_directions_bitmask, uint8_t interaction_directions_bitmask);
     ~Tile();
-    bool isCollision(uint8_t player_direction);
-    bool isInteraction(uint8_t player_direction);
+
+    bool isCollision(utils::Direction player_direction);
+    bool isInteraction(utils::Direction player_direction);
+
     utils::Coordinate getCoordinate();
 
    private:
