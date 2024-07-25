@@ -1,3 +1,3 @@
-#include <include/Map.hpp>
+#include <Map.hpp>
 
 int main() { std::cout << "hello Map" << std::endl; }

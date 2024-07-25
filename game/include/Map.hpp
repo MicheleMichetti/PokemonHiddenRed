@@ -1,10 +1,12 @@
 #pragma once
 
-#include <Tile.hpp>
 #include <boost/multi_array.hpp>
 #include <iostream>
 #include <map>
 #include <string>
+
+#include <Tile.hpp>
+#include <Entity.hpp>
 
 using tileArray = boost::multi_array<Tile, 2>;
 using entityMap = std::map<uint32_t, Entity>;
@@ -28,7 +30,7 @@ class Map {
     void setCurrentType(const uint8_t& current_type);
     void setMapName(const std::string& map_name);
     void setBitmapName(const std::string& bitmap_name);
-    void setTiles(const tileArray tiles, const uint16_t& length_x, const uint16_t& length_y);
+    void setTiles(const tileArray& tiles, const uint16_t& length_x, const uint16_t& length_y);
     void setEntities(const entityMap& entities);
     void setTile(const utils::Coordinate& coordinate, const Tile& tile);
 
@@ -45,4 +47,4 @@ class Map {
     bool doesItInteract(const utils::Coordinate& coordinate, const uint8_t& direction);
     bool isPokemonBattleTriggered();
     bool isTrainerBattleTriggered();
-}
+};
