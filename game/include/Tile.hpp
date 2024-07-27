@@ -9,6 +9,12 @@ class Tile {
     Tile(uint8_t collision_directions_bitmask, uint8_t interaction_directions_bitmask, InteractionTile interaction);
     ~Tile();
 
+    void setCollisionDirectionsBitmask(uint8_t collision_bitmask);
+    void setInteractionDirectionsBitmask(uint8_t interaction_bitmask);
+
+    uint8_t getCollisionDirectionsBitmask();
+    uint8_t getInteractionDirectionsBitmask();
+
     bool isCollision(uint8_t player_direction);
     bool isInteraction(uint8_t player_direction);
 
