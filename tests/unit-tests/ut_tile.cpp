@@ -10,7 +10,6 @@ void resetState() {
     coordinate.x = 0;
     coordinate.y = 0;
     direction = utils::Direction::none;
-    
 }
 
 bool CollisionUp() {
