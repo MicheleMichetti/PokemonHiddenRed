@@ -21,4 +21,4 @@ uint8_t Tile::getInteractionDirectionsBitmask() { return this->interaction_direc
 
 bool Tile::isCollision(uint8_t player_direction) { return player_direction & this->collision_directions_bitmask_; }
 
-bool Tile::isInteraction(uint8_t player_direction) { return player_direction & this->interaction_directions_bitmask_; }
+bool Tile::isInteraction(uint8_t player_direction) { return player_direction & this->interaction_directions_bitmask_ & interaction.isInteraction(); }
