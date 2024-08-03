@@ -1,6 +1,6 @@
-#include <Map.hpp>
+#include <spdlog/spdlog.h>
 
-//#include "spdlog/spdlog.h"
+#include <Map.hpp>
 
 Map::Map(const uint16_t& id, const uint8_t& current_type, const std::string& map_name, const std::string& bitmap_name, const tileArray& tiles, const uint16_t& length_x, const uint16_t& length_y,
          const entityMap& entities) {
@@ -20,7 +20,7 @@ void Map::setMapName(const std::string& map_name) { this->map_name_ = map_name; 
 void Map::setBitmapName(const std::string& bitmap_name) { this->bitmap_name_ = bitmap_name; }
 void Map::setTiles(const tileArray& tiles, const uint16_t& length_x, const uint16_t& length_y) {
     if (length_x == 0 || length_y == 0) {
-        // SPDLOG_ERROR("The tile matrix that is being set has dimension 0. Exiting. ");
+        SPDLOG_ERROR("The tile matrix that is being set has dimension 0. Exiting. ");
         throw std::invalid_argument("The tile matrix that is being set has dimension 0.");
         return;
     }
