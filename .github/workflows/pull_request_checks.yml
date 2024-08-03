@@ -15,7 +15,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v3
     - name: Build docker image
-      run: docker-compose build
+      run: docker compose build
     - name: Cache project dependencies image
       id: cache-project-dependencies
       uses: actions/cache@v4
