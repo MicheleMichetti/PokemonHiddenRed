@@ -1,6 +1,6 @@
-#include <Map.hpp>
-
 #include <spdlog/spdlog.h>
+
+#include <Map.hpp>
 
 Map::Map(const uint16_t& id, const uint8_t& current_type, const std::string& map_name, const std::string& bitmap_name, const tileArray& tiles, const uint16_t& length_x, const uint16_t& length_y,
          const entityMap& entities) {
