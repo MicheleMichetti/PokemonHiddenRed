@@ -10,6 +10,4 @@ class InteractionTile : public virtual _interaction::Interaction {
     void endInteraction();
 
     void callFromRAM();
-
-
 };

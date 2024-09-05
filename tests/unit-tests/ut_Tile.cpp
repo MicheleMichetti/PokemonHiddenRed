@@ -6,10 +6,9 @@ bool collision(uint8_t direction) {
     InteractionTile interTile;
     Tile testTile(0b00001010, 0b00000101, interTile);
 
-    std::cout<<"Test Collision "<<direction<<std::endl;
+    std::cout << "Test Collision " << direction << std::endl;
 
     return testTile.isCollision(direction);
-
 }
 
 TEST(collision, Positive) {
