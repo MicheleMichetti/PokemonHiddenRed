@@ -7,8 +7,8 @@ Interaction::Interaction() {
     status_bit_mask_ = 0;
 }
 Interaction::Interaction(uint8_t type, uint8_t status_bit_mask) {
-    type_ = type;
-    status_bit_mask_ = status_bit_mask;
+    this->type_ = type;
+    this->status_bit_mask_ = status_bit_mask;
 }
 Interaction::~Interaction() {
     // type_ = 0;
