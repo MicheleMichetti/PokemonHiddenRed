@@ -5,10 +5,11 @@ class BinaryFileRW {
     std::ofstream ouput_stream;
     std::ifstream input_stream;
 
-   public:
     BinaryFileRW(std::string filename, std::ofstream ouput_stream);
-    BinaryFileRW(std::string filename, std::ifstream input_stream);
-    BinaryFileRW(std::string filename, std::ofstream ouput_stream, std::ifstream input_stream);
+
+   public:
+    
+   static void getFile(std::string filename);
     ~BinaryFileRW();
     template <class T>
     T readBitsAtPosition(uint64_t position);
