@@ -12,13 +12,21 @@ trunc: truncate	Any contents that existed in the file before it is open are disc
 */
 
 BinaryFileRW::BinaryFileRW(std::string filename) {
-    stream.open(filename, std::fstream::in | std::fstream::out);  // ios_base::openmode or std::fstream::openmode to change the mode laeer, at any time. It requires type above, like ios::out etc
+    stream.open(filename, std::fstream::in);  // ios_base::openmode or std::fstream::openmode to change the mode laeer, at any time. It requires type above, like ios::out etc
 }
 
-~BinaryFileRW::BinaryFileRW() {}
+static void BinaryFileRW::getFile(std::string filename) {
+    BinaryFileRW(filename);
+}
+
+BinaryFileRW::~BinaryFileRW() {}
 template <class T>
 T BinaryFileRW::readBitsAtPosition(uint64_t position) {}
 template <class T, class Z>
 void BinaryFileRW::writeBitsAtPosition(T target, Z bitmask, uint64_t position) {}
 template <class T, class Z>
 void BinaryFileRW::writeBitsInPipeline(T target, Z bitmask) {}
+
+void BinaryFile::resetPermission() {
+    stream.openmode(std::fstream::in);
+}
