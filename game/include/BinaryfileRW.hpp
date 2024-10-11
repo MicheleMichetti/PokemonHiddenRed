@@ -2,10 +2,10 @@
 
 class BinaryFileRW {
    private:
-    std::ofstream ouput_stream;
-    std::ifstream input_stream;
+    std::string filename;
+    std::fstream stream;
 
-    BinaryFileRW(std::string filename, std::ofstream ouput_stream);
+    BinaryFileRW();
 
    public:
     static void getFile(std::string filename);
