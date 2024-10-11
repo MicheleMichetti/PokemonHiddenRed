@@ -16,4 +16,5 @@ class BinaryFileRW {
     void writeBitsAtPosition(T target, Z bitmask, uint64_t position);
     template <class T, class Z>
     void writeBitsInPipeline(T target, Z bitmask);
+    void resetPermission();
 };
