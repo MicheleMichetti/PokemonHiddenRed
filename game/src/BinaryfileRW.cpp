@@ -15,9 +15,7 @@ BinaryFileRW::BinaryFileRW(std::string filename) {
     stream.open(filename, std::fstream::in);  // ios_base::openmode or std::fstream::openmode to change the mode laeer, at any time. It requires type above, like ios::out etc
 }
 
-static void BinaryFileRW::getFile(std::string filename) {
-    BinaryFileRW(filename);
-}
+static void BinaryFileRW::getFile(std::string filename) { BinaryFileRW(filename); }
 
 BinaryFileRW::~BinaryFileRW() {}
 template <class T>
@@ -27,6 +25,4 @@ void BinaryFileRW::writeBitsAtPosition(T target, Z bitmask, uint64_t position) {
 template <class T, class Z>
 void BinaryFileRW::writeBitsInPipeline(T target, Z bitmask) {}
 
-void BinaryFile::resetPermission() {
-    stream.openmode(std::fstream::in);
-}
+void BinaryFile::resetPermission() { stream.openmode(std::fstream::in); }
