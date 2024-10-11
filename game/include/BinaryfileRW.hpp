@@ -8,8 +8,7 @@ class BinaryFileRW {
     BinaryFileRW(std::string filename, std::ofstream ouput_stream);
 
    public:
-    
-   static void getFile(std::string filename);
+    static void getFile(std::string filename);
     ~BinaryFileRW();
     template <class T>
     T readBitsAtPosition(uint64_t position);
