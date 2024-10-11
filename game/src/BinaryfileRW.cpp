@@ -1,6 +1,5 @@
 #include <BinaryFileRW.hpp>
 
-
 /***
 fstream class flags.
 
@@ -12,10 +11,8 @@ app: append	All output operations happen at the end of the file, appending to it
 trunc: truncate	Any contents that existed in the file before it is open are discarded.
 */
 
-
 BinaryFileRW::BinaryFileRW(std::string filename) {
-    stream.open(filename, std::fstream::in | std::fstream::out); //ios_base::openmode or std::fstream::openmode to change the mode laeer, at any time. It requires type above, like ios::out etc
-    
+    stream.open(filename, std::fstream::in | std::fstream::out);  // ios_base::openmode or std::fstream::openmode to change the mode laeer, at any time. It requires type above, like ios::out etc
 }
 
 ~BinaryFileRW::BinaryFileRW() {}
