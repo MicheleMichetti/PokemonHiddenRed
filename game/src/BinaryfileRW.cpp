@@ -1,11 +1,23 @@
 #include <BinaryFileRW.hpp>
 
-BinaryFileRW::BinaryFileRW(std::string filename, std::ofstream ouput_stream) {
-    File output_file(filename);
-    this->output_stream = output_file.read;
+
+/***
+fstream class flags.
+
+in:input	File open for reading: the internal stream buffer supports input operations.
+out: output	File open for writing: the internal stream buffer supports output operations.
+binary: 	binary	Operations are performed in binary mode rather than text.
+ate: at end	The output position starts at the end of the file.
+app: append	All output operations happen at the end of the file, appending to its existing contents.
+trunc: truncate	Any contents that existed in the file before it is open are discarded.
+*/
+
+
+BinaryFileRW::BinaryFileRW(std::string filename) {
+    stream.open(filename, std::fstream::in | std::fstream::out); //ios_base::openmode or std::fstream::openmode to change the mode laeer, at any time. It requires type above, like ios::out etc
+    
 }
-BinaryFileRW::BinaryFileRW(std::string filename, std::ifstream input_stream) {}
-BinaryFileRW::BinaryFileRW(std::string filename, std::ofstream ouput_stream, std::ifstream input_stream) {}
+
 ~BinaryFileRW::BinaryFileRW() {}
 template <class T>
 T BinaryFileRW::readBitsAtPosition(uint64_t position) {}
